@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Directory of links</title>
+        <link rel="stylesheet" href="/src/pages/main.css" type="text/css"/>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <ul>
+        {{#each this}}
+            <li class="link">
+                <a href="/links/{{path}}">{{name}}</a>
+            </li>
+        {{/each}}
+        </ul>
+    </body>
+</html>

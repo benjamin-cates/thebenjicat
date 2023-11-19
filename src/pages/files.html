@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Directory of files</title>
+        <link rel="stylesheet" href="/src/pages/main.css" type="text/css"/>
+    </head>
+    <body>
+        <ul>
+            {{#each this}}
+                <li class="file {{password}}">
+                    <a href="/files/{{path}}">/files/{{path}}</a>
+                </li>
+            {{/each}}
+        </ul>
+    </body>
+</html>
