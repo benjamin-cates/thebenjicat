@@ -19,18 +19,18 @@ pub async fn index() -> Result<NamedFile, std::io::Error> {
     Ok(NamedFile::open("src/index.html")?)
 }
 
-#[get("/src/static/{folder}/{file}")]
+#[get("/static/{folder}/{file}")]
 pub async fn get_static_file(
     path: web::Path<(String, String)>,
     request: HttpRequest,
 ) -> Result<HttpResponse, std::io::Error> {
     let valid_paths: std::collections::HashSet<&str> = [
-        "images/interactive_em.jpg",
-        "images/matrix_assistant.jpg",
-        "images/pfp.jpg",
-        "images/piha.jpg",
-        "images/topomap.jpg",
-        "style/main.css",
+        "src/static/images/interactive_em.jpg",
+        "src/static/images/matrix_assistant.jpg",
+        "src/static/images/pfp.jpg",
+        "src/static/images/piha.jpg",
+        "src/static/images/topo_map.jpg",
+        "src/static/style/main.css",
     ]
     .into_iter()
     .collect();
