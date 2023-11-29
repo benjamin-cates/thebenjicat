@@ -1,6 +1,6 @@
 use crate::database;
 use actix_files::NamedFile;
-use actix_web::{get, web, HttpResponse, Result};
+use actix_web::{get, web, HttpRequest, HttpResponse, Result};
 
 use handlebars::Handlebars;
 use rusqlite::Connection;
@@ -19,9 +19,31 @@ pub async fn index() -> Result<NamedFile, std::io::Error> {
     Ok(NamedFile::open("src/index.html")?)
 }
 
-#[get("/src/pages/main.css")]
-pub async fn get_css() -> Result<NamedFile, std::io::Error> {
-    Ok(NamedFile::open("src/pages/main.css")?)
+#[get("/src/static/{folder}/{file}")]
+pub async fn get_static_file(
+    path: web::Path<(String, String)>,
+    request: HttpRequest,
+) -> Result<HttpResponse, std::io::Error> {
+    let valid_paths: std::collections::HashSet<&str> = [
+        "images/interactive_em.jpg",
+        "images/matrix_assistant.jpg",
+        "images/pfp.jpg",
+        "images/piha.jpg",
+        "images/topomap.jpg",
+        "style/main.css",
+    ]
+    .into_iter()
+    .collect();
+    let full_path = "src/static/".to_owned() + path.0.as_ref() + &"/" + path.1.as_ref();
+    if valid_paths.get(full_path.as_str()).is_none() {
+        return Ok(HttpResponse::Forbidden().finish());
+    }
+    Ok(
+        match NamedFile::open("src/static/".to_owned() + path.0.as_ref() + &"/" + path.1.as_ref()) {
+            Ok(file) => file.into_response(&request),
+            Err(_) => HttpResponse::NotFound().finish(),
+        },
+    )
 }
 
 #[get("/links/{link}")]
@@ -63,4 +85,9 @@ pub async fn get_projects(path: web::Path<(String,)>) -> Result<NamedFile, std::
         Err(_) => NamedFile::open("src/pages/file_not_found.html"),
         Ok(f) => Ok(f),
     }
+}
+
+#[get("/projects")]
+pub async fn get_projects_index() -> Result<NamedFile, std::io::Error> {
+    NamedFile::open("src/pages/projects/index.html")
 }
