@@ -3,6 +3,7 @@ use actix_files::NamedFile;
 use actix_web::{get, web, HttpRequest, HttpResponse, Result};
 
 use handlebars::Handlebars;
+use lazy_static::lazy_static;
 use rusqlite::Connection;
 use std::io::Read;
 use std::sync::Mutex;
@@ -19,23 +20,28 @@ pub async fn index() -> Result<NamedFile, std::io::Error> {
     Ok(NamedFile::open("src/index.html")?)
 }
 
+lazy_static! {
+    static ref STATIC_FILES: std::collections::HashSet<&'static str> = {
+        [
+            "src/static/images/interactive_em.jpg",
+            "src/static/images/matrix_assistant.jpg",
+            "src/static/images/pfp.jpg",
+            "src/static/images/piha.jpg",
+            "src/static/images/topo_map.jpg",
+            "src/static/style/main.css",
+        ]
+        .into_iter()
+        .collect()
+    };
+}
+
 #[get("/static/{folder}/{file}")]
 pub async fn get_static_file(
     path: web::Path<(String, String)>,
     request: HttpRequest,
 ) -> Result<HttpResponse, std::io::Error> {
-    let valid_paths: std::collections::HashSet<&str> = [
-        "src/static/images/interactive_em.jpg",
-        "src/static/images/matrix_assistant.jpg",
-        "src/static/images/pfp.jpg",
-        "src/static/images/piha.jpg",
-        "src/static/images/topo_map.jpg",
-        "src/static/style/main.css",
-    ]
-    .into_iter()
-    .collect();
     let full_path = "src/static/".to_owned() + path.0.as_ref() + &"/" + path.1.as_ref();
-    if valid_paths.get(full_path.as_str()).is_none() {
+    if STATIC_FILES.get(full_path.as_str()).is_none() {
         return Ok(HttpResponse::Forbidden().finish());
     }
     Ok(
