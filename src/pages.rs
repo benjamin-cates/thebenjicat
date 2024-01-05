@@ -92,8 +92,3 @@ pub async fn get_projects(path: web::Path<(String,)>) -> Result<NamedFile, std::
         Ok(f) => Ok(f),
     }
 }
-
-#[get("/projects")]
-pub async fn get_projects_index() -> Result<NamedFile, std::io::Error> {
-    NamedFile::open("src/pages/projects/index.html")
-}

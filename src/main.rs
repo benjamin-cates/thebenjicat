@@ -23,7 +23,6 @@ async fn main() -> std::io::Result<()> {
             .service(pages::index)
             .service(pages::get_links)
             .service(pages::get_projects)
-            .service(pages::get_projects_index)
             .service(pages::get_sitemap)
             .service(pages::get_static_file)
             .service(pages::get_links_main)
