@@ -1,16 +1,29 @@
-use actix_web::{web::Data, App, HttpServer};
-use handlebars::Handlebars;
+use actix_web::{web::Data, App, HttpResponse, HttpServer};
+use handlebars::{DirectorySourceOptions, Handlebars};
 mod database;
 mod files;
 mod pages;
 
+pub(crate) fn template_to_response(hb: &Data<Handlebars<'_>>, path: &str) -> HttpResponse {
+    HttpResponse::Ok()
+        .content_type("text/html")
+        .body(hb.render(path, &0).unwrap())
+}
+
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     let mut hb: Handlebars = Handlebars::new();
-    hb.register_template_file("links", "src/pages/links.html")
+    hb.register_partial("header", include_str!("pages/partials/header.html"))
         .unwrap();
-    hb.register_template_file("files", "src/pages/files.html")
-        .unwrap();
+    hb.register_templates_directory(
+        "src/pages",
+        DirectorySourceOptions {
+            tpl_extension: ".html".to_owned(),
+            hidden: false,
+            temporary: false,
+        },
+    )
+    .unwrap();
 
     std::env::set_var("RUST_LOG", "actix_web=trace");
     env_logger::init();

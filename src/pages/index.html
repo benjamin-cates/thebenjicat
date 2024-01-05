@@ -7,36 +7,8 @@
         <link href="/static/style/main.css" rel="stylesheet">
     </head>
     <body style="margin: 0px;">
+        {{> partials/header}}
         
-        <header>
-            <style>
-                header {
-                    box-shadow: 0px 1px 5px 2px #00000088;
-                    padding: 1em;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: center;
-                     
-                }
-                #header_name { display: flex; align-items: center; }
-                #pfp {border-radius: 100%; width: 3rem; height: 3rem; margin-right: 1em}
-                #pronouns {color: #777777; font-size: 0.75em;}
-                #location {color: #888888; font-size: 0.75em;margin-left: 0.6em}
-                #name {font-size: 1.5em;}
-            </style>
-            <div id="header_name">
-                <img id="pfp" src="/static/images/pfp.jpg" alt="Profile picture"/>
-                <span>
-                    <div id="name">Benjamin Cates</div>
-                    <span id="pronouns">he/him</span>
-                    <span id="location">Irvine, CA</span>
-                <span>
-            </div>
-            <div>
-                <a href="/sitemap">/sitemap</a>
-            </div>
-        </header>
         <style>
             body { background: #222222; color: white; }
             a, a:visited { color: #5566FF; }

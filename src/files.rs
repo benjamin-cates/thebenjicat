@@ -34,7 +34,9 @@ pub async fn get_files_main(
 pub async fn get_files(
     path: web::Path<String>,
     data: web::Data<Mutex<Connection>>,
-) -> Result<NamedFile, std::io::Error> {
+    request: HttpRequest,
+    hb: web::Data<Handlebars<'_>>,
+) -> Result<HttpResponse, std::io::Error> {
     /*
      * Files item in database
      * path: String
@@ -44,12 +46,13 @@ pub async fn get_files(
      */
     let page = database::FileListing::from_path(path.as_str(), data.get_ref());
     match page {
-        None => Ok(NamedFile::open("src/pages/file_not_found.html")?),
+        None => Ok(crate::template_to_response(&hb, "file_not_found")),
         Some(page) => {
             if page.password.is_some() && page.password.unwrap() != "" {
-                Ok(NamedFile::open("src/pages/enter_password.html")?)
+                Ok(crate::template_to_response(&hb, "enter_password"))
             } else {
-                Ok(NamedFile::open("files/".to_string() + &path.into_inner())?)
+                Ok(NamedFile::open("files/".to_string() + &path.into_inner())?
+                    .into_response(&request))
             }
         }
     }
