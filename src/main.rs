@@ -13,8 +13,6 @@ pub(crate) fn template_to_response(hb: &Data<Handlebars<'_>>, path: &str) -> Htt
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     let mut hb: Handlebars = Handlebars::new();
-    hb.register_partial("header", include_str!("pages/partials/header.html"))
-        .unwrap();
     hb.register_templates_directory(
         "src/pages",
         DirectorySourceOptions {
