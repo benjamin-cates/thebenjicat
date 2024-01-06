@@ -1,25 +1,20 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
     <head>
         <title>Sitemap</title>
-        <link rel="stylesheet" href="/static/style/main.css" type="text/css"/>
+        {{> partials/html_head}}
         <style> 
-            a:visited {
-                color: blue;
-            }
             .sitemap_link {
                 min-width: 10em;
                 display: inline-block;
             }
             .long {
                 min-width: 20em;
-
             }
-
-
         </style>
     </head>
     <body>
+        {{> partials/header}}
         <h1><a href='/'>thebenjicat.dev</a> sitemap</h1>
         <ul>
             <li><a href='/' class="sitemap_link">/home</a><span class="desc">Home page</span></li>
