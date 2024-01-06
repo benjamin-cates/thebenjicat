@@ -6,12 +6,14 @@
     </head>
     <body>
         {{> partials/header}}
-        <ul>
-        {{#each this}}
-            <li class="link">
-                <a href="/links/{{path}}">{{name}}</a>
-            </li>
-        {{/each}}
-        </ul>
+        <div class="page">
+            <ul>
+            {{#each this}}
+                <li class="link">
+                    <a href="/links/{{path}}">{{name}}</a>
+                </li>
+            {{/each}}
+            </ul>
+        </div>
     </body>
 </html>
