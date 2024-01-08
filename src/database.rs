@@ -49,6 +49,12 @@ impl FileListing {
                 params![self.path, self.password],
             )
     }
+    pub fn remove_from_db(&self, db: &Mutex<Connection>) -> Result<usize, rusqlite::Error> {
+        db.lock()
+            .ok()
+            .ok_or(rusqlite::Error::SqliteSingleThreadedMode)?
+            .execute("DELETE from files WHERE path = (?1)", params![self.path])
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -100,6 +106,12 @@ impl LinkListing {
                 "INSERT INTO links (path, name, destination) VALUES (?1,?2,?3)",
                 params![self.path, self.name, self.destination],
             )
+    }
+    pub fn remove_from_db(&self, db: &Mutex<Connection>) -> Result<usize, rusqlite::Error> {
+        db.lock()
+            .ok()
+            .ok_or(rusqlite::Error::SqliteSingleThreadedMode)?
+            .execute("DELETE from links WHERE path = (?1)", params![self.path])
     }
 }
 

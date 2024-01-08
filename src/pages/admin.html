@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>Admin page</title>
+        {{> partials/html_head}}
+    </head>
+    <body>
+        {{> partials/header}}
+        <div class="page">
+            <h2>thebenjicat.dev admin page</h2>
+            <select id="select_action" name="select_action" value="add_file">
+                <option value="add_file">Upload file</option>
+                <option value="add_link">Add link</option>
+                <option value="remove_file">Remove file</option>
+                <option value="remove_link">Remove link</option>
+            </select>
+            <divider></divider>
+
+
+            <div id="add_file" class="admin_option" style="display: block">
+                <p> Upload file: </p>
+                <input type="file" id="add_file_file"/> 
+                <input type="text" id="add_file_name" placeholder="File name"/>
+                <input type="text" id="add_file_password" placeholder="Password (or blank)"/>
+            </div>
+            <div id="add_link" class="admin_option">
+                <p> Insert link: </p>
+                <input type="text" id="add_link_name" placeholder="Name"/>
+                <input type="text" id="add_link_path" placeholder="Path"/>
+                <input type="text" id="add_link_url" placeholder="URL"/>
+            </div>
+            <div id="remove_file" class="admin_option">
+                <p> Remove file: </p>
+                <input type="text" id="remove_file_name" placeholder="Name"/>
+            </div>
+            <div id="remove_link" class="admin_option">
+                <p> Remove link: </p>
+                <input type="text" id="remove_link_path" placeholder="Path"/>
+            </div>
+            <divider></divider>
+        
+
+            <div>
+                <input type="text" id="admin_password" onkeypress="if(event.key == 'Enter') document.querySelector('#submit').click()" placeholder="Admin Password"/>
+                <button id="submit">Submit</button>
+            </div>
+            <p id="result"></p>
+            <style>
+                .admin_option {
+                    display:none;
+                }
+                input, button, select {
+                    font-family: "Lexend";
+                    display: block;
+                    font-size:1rem;
+                    color: #DDD;
+                    background: #333;
+                    border-radius: 5px;
+                    border: none;
+                    margin-top: 0.4rem;
+                    padding: 0.2rem;
+                }
+                input:focus, button:focus, select:focus {
+                    outline: 0.1rem #4466FF solid;
+                }
+                divider {
+                    margin-top:2rem;
+                    display: block;
+                    height: 2rem;
+                    border-top: 2px dashed #555;
+                }
+            </style>
+            <script>
+            let type = "add_file";
+            document.querySelector("#select_action").addEventListener("input", event => {
+                type = document.querySelector("#select_action").value
+                document.querySelectorAll(".admin_option").forEach(el=>el.style.display="none");
+                document.querySelector("#"+type).style.display="block";
+            });
+            document.querySelector("#submit").addEventListener("click", submit);
+            async function submit(event) {
+                let admin_password = document.querySelector("#admin_password").value;
+                let data = {};
+                if(type=="add_file") {
+                    data = admin_password;
+                    data += ",";
+                    data += document.querySelector("#add_file_name").value;
+                    data += ",";
+                    data += document.querySelector("#add_file_password").value;
+                    data += ",";
+                    if(data.split(",").length != 4) {
+                        alert("Cannot have comma in file name or password");
+                        return;
+                    }
+                    let text = new TextEncoder().encode(data);
+                    let file = document.querySelector("#add_file_file").files[0];
+                    if(!file) {
+                        document.querySelector("#result").innerHTML = "Error: No file provided";
+                        return;
+                    }
+                    file = await file.arrayBuffer();
+                    data = new Uint8Array(text.length + file.byteLength);
+                    data.set(text,0);
+                    data.set(new Uint8Array(file),text.length);
+                }
+                else if(type=="add_link") {
+                    data = JSON.stringify({
+                        'name': document.querySelector("#add_link_name").value,
+                        'path': document.querySelector("#add_link_path").value,
+                        'url': document.querySelector("#add_link_url").value,
+                        'admin_password': admin_password,
+                    });
+                }
+                else if(type=="remove_link") {
+                    data = JSON.stringify({
+                        'path': document.querySelector("#remove_link_path").value,
+                        'admin_password': admin_password,
+                    });
+                }
+                else if(type=="remove_file") {
+                    data = JSON.stringify({
+                        'name': document.querySelector("#remove_file_name").value,
+                        'admin_password': admin_password,
+                    });
+                }
+                else {
+                    document.querySelector("#result").innerHTML = "Invalid option: " + type;
+                    return
+                }
+                console.log("/admin/"+type, data);
+                fetch("/admin/" + type, {
+                    method: "post",
+                    headers: {
+                        "Content-type": "application/json"
+                    },
+                    body: data
+                }).then(response => {
+                        let result_el = document.querySelector("#result");
+                        if(response.status == 200) {
+                            result_el.innerHTML = "Result: Success";
+                        }
+                        else if(response.status == 403) {
+                            result_el.innerHTML = "Result: Incorrect admin password";
+                        }
+                        else if(response.status == 500) {
+                            result_el.innerHTML = "Result: Internal server error";
+                        }
+                        else {
+                            response.text().then(text => {
+                                result_el.innerHTML = "Result: Error code " + response.status + ", "+ text;
+                            });
+                        }
+                    });
+                for(let element of document.getElementsByTagName("input")) {
+                    if(element.type == "text") {
+                        element.value = "";
+                    }
+                }
+            }
+            </script>
+        </div>
+    </body>
+</html>

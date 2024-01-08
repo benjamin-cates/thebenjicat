@@ -1,5 +1,6 @@
 use actix_web::{web::Data, App, HttpResponse, HttpServer};
 use handlebars::{DirectorySourceOptions, Handlebars};
+mod admin;
 mod database;
 mod files;
 mod pages;
@@ -9,6 +10,8 @@ pub(crate) fn template_to_response(hb: &Data<Handlebars<'_>>, path: &str) -> Htt
         .content_type("text/html")
         .body(hb.render(path, &0).unwrap())
 }
+
+pub(crate) struct AdminPassword(&'static str);
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -41,8 +44,12 @@ async fn main() -> std::io::Result<()> {
             .service(files::get_files_json)
             .service(files::get_files_main)
             .service(files::get_locked_file)
+            .service(admin::admin_scope())
             .app_data(Data::clone(&db_data))
             .app_data(Data::clone(&hb_data))
+            .app_data(Data::new(AdminPassword(
+                include_str!("admin_password.txt").trim(),
+            )))
     })
     .bind(("127.0.0.1", 8000))?
     .run()
