@@ -3,11 +3,83 @@
     <head>
         <title>Topographic Sand Map</title>
         {{> partials/html_head}}
+        <link rel="stylesheet" type="text/css" href="/static/style/project.css"/>
     </head>
     <body>
         {{> partials/header}}
-        <div class="page">
-            Topographic Sand Map
+        <div class="project_title">Topographic Sand Map</div>
+        <div id="topographic_sand_map" class="project">
+            <div class="flex_column">
+                <div class="flex_item">
+                    <div class="item_title">Description</div>
+                    <div class="project_spiel">
+                        The topographic sand map is a real-time interactive demonstration of topography lines.
+                        The table uses the Microsoft Kinect viewer to create a height map of the sand 30 times per
+                        second, which is then sent through processing filters that create a layered topographic map.
+                        I displayed it at the <b>Geomatics Engineering Conference</b> in Fresno.
+                        I started on the project when another team had been working on it for two years.
+                        The mechanism was ready but there was no code to run it.
+                        I adopted the project by myself and wrote a working Unity program within 5 months.
+                    </div>
+                </div>
+                <iframe class="flex_item project_video" width="560" height="315"
+                  src="https://www.youtube.com/embed/TRQ0kKvbz6o" title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+                <div class="flex_item">
+                    <div class="item_title">Technologies Used</div>
+                    <ul class="project_features">
+                        <li>Unity</li>
+                        <li>C#</li>
+                        <li>Shaderlab</li>
+                        <li>Microsoft Kinect</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex_column">
+                <div class="flex_item project_photos">
+                    <div class="item_title">Photos</div>
+                    <div class="photo_carousel">
+                        <div class="photo">
+                            <image src="/static/project/topo-000.jpg"></image><br>
+                            Table at Geomatics and Engineering Conference at CSU Fresno
+                        </div>
+                        <div class="photo">
+                            <image src="/static/project/topo-002.jpg"></image><br>
+                            Table at the Expand Your Horizons youth conference
+                        </div>
+                        <div class="photo">
+                            <image src="/static/project/topo-001.jpg"></image><br>
+                            Cool geographical designs on the table
+                        </div>
+                        <div class="photo">
+                            <image src="/static/project/topo-003.jpg"></image><br>
+                            Table in the dark
+                        </div>
+                        <div class="photo">
+                            <image src="/static/project/topo-004.jpg"></image><br>
+                        </div>
+                        <div class="photo">
+                            <image src="/static/project/topo-005.jpg"></image><br>
+                            Dr. Ahn playing with the sand table
+                        </div>
+                    </div>
+                    <div class="carousel_markers">
+                        <span></span><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div class="flex_item">
+                    <div class="item_title">Features</div>
+                    <ul class="project_features">
+                        <li>Alignment control system</li>
+                        <li>Different themes</li>
+                        <li>Contour lines</li>
+                    </ul>
+                </div>
+                <div class="flex_item project_links">
+                    <a href="https://github.com/fnlHub/topographic-sand-map" target="_blank">View source code on Github</a>
+                </div>
+            </div>
         </div>
     </body>
 </html>
