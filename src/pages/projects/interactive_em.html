@@ -3,11 +3,64 @@
     <head>
         <title>Interactive EM</title>
         {{> partials/html_head}}
+        <link rel="stylesheet" type="text/css" href="/static/style/project.css"/>
     </head>
     <body>
         {{> partials/header}}
-        <div class="page">
-            Interactive EM
+        <div class="project_title">
+           Interactive EM
+        </div>
+        <div class="project">
+            <div class="flex_column">
+                <div class="flex_item project_spiel">
+                    Group project made at Friday Night Lab to simulate charges and conductors in the electric field. Wrote a
+                    document in LaTeX describing all of the math necessary, such as derivations of voltage formulae from
+                    integrating Coulomb's Law, Linear Algebra-based solution to create an efficient conductor simulation, and
+                    calculations of torque. Special thanks to Dr. Quinn MacPherson for helping with the theory.
+                </div>
+            <div class="flex_item project_features">
+                <div class="item_title">Features</div>
+                    <ul>
+                        <li>Various charge and conductor shapes</li>
+                        <li>Live properties editor</li>
+                        <li>Equipotential lines</li>
+                        <li>Force and torque based physics</li>
+                    </ul>
+                </div>
+                <div class="flex_item">
+                    <div class="item_title">Technologies Used</div>
+                        <ul>
+                            <li>Typescript</li>
+                            <li>LaTeX</li>
+                            <li>HTML, CSS, and WebGL</li>
+                        </ul>
+                    </div>
+                </div>
+            <div class="flex_column">
+                <div class="flex_item project_photos">
+                    <div class="photo_carousel">
+                        <div class="photo">
+                            <image src="/static/project/InteractiveEM002.png"></image><br>
+                            Ring conductor within two dipole planes
+                        </div>
+                        <div class="photo">
+                            <image src="/static/project/InteractiveEM001.png"></image><br>
+                            Ring conductor in a dipole plane
+                        </div>
+                        <div class="photo">
+                            <image src="/static/project/InteractiveEM003.png"></image><br>
+                            Two oppositely charged lines
+                        </div>
+                    </div>
+                    <div class="carousel_markers">
+                        <span></span><span></span><span></span>
+                    </div>
+                 </div>
+                 <div class="flex_item project_links">
+                    <a href="https://benjamin-cates.github.io/Interactive-EM" target="_blank">Try it out here</a><br>
+                    <a href="https://github.com/benjamin-cates/Interactive-EM/" target="_blank">View source code on Github</a>
+                 </div>
+            </div>
         </div>
     </body>
 </html>

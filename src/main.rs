@@ -16,6 +16,8 @@ pub(crate) struct AdminPassword(&'static str);
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     let mut hb: Handlebars = Handlebars::new();
+    #[cfg(debug_assertions)]
+    hb.set_dev_mode(true);
     hb.register_templates_directory(
         "src/pages",
         DirectorySourceOptions {
