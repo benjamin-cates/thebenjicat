@@ -3,11 +3,52 @@
     <head>
         <title>XprtCalc</title>
         {{> partials/html_head}}
+        <link rel="stylesheet" type="text/css" href="/static/style/project.css"/>
     </head>
     <body>
         {{> partials/header}}
-        <div class="page">
-            XprtCalc
+        <div class="project_title">XprtCalc</div>
+        <div id="xprtcalc" class="project">
+            <div class="flex_column">
+                <div class="flex_item project_spiel">
+                    Advanced caculator designed for Calculus students. Supports parallel processing, 
+                    unit analysis, and complex numbers.
+                </div>
+                <div class="flex_item project_features">
+                    <div class="item_title">Features</div>
+                    <ul>
+                        <li>Wide array of built-in functions</li>
+                        <li>Unit analysis</li>
+                        <li>Arbitrary precision numbers</li>
+                        <li>Complex numbers</li>
+                        <li>Lambda functions</li>
+                        <li>Vectors</li>
+                        <li>Variable and function declaration</li>
+                        <li>Features of <b>Calculus</b></li>
+                        <li>Syntax highlighting</li>
+                        <li>100% Client-side and fast</li>
+                        <li>On screen keyboard</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex_column">
+                <div class="flex_item">
+                    <div class="item_title">Technologies Used</div>
+                    <ul>
+                        <li>C++</li>
+                        <li>JavaScript</li>
+                        <li>WebAssembly</li>
+                        <li>CMake</li>
+                        <li>HTML/CSS</li>
+                        <li>GNU Multi-Precision Library (GMP)</li>
+                        <li>Linux terminal API</li>
+                    </ul>
+                </div>
+                <div class="flex_item project_links">
+                    <a href="https://benjamin-cates.github.io/XprtCalc" target="_blank">Try it out here</a><br>
+                    <a href="https://github.com/benjamin-cates/XprtCalc/" target="_blank">View source code on Github</a>
+                </div>
+            </div>
         </div>
     </body>
 </html>
