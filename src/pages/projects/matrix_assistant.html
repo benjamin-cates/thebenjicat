@@ -3,11 +3,48 @@
     <head>
         <title>Matrix Assistant</title>
         {{> partials/html_head}}
+        <link rel="stylesheet" type="text/css" href="/static/style/project.css"/>
     </head>
     <body>
         {{> partials/header}}
-        <div class="page">
-            Matrix Assistant
+        <div class="project_title">Matrix Assistant</div>
+        <div id="matrix_assistant" class="project">
+            <div class="flex_column">
+                <div class="flex_item project_spiel">
+                    During my time in Linear Algebra, I found it was easy to make mistakes while 
+                    reducing matrices. I wanted to create a tool that would help others learn 
+                    the algorithm for row reducing a matrix and help catch mistakes. The result is Matrix Assistant.
+                    It's a web app that assists you in solving a matrix with different
+                    difficulty levels. It was my first project built with TypeScript and React,
+                    so it was also a big learning experience.
+                </div>
+                <div class="flex_item project_features">
+                    <div class="item_title">Features</div>
+                        <ul>
+                        <li>Basic row operations</li>
+                        <li>Error detection</li>
+                        <li>Automatic fraction reduction</li>
+                        <li>Autofill mode</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex_column">
+                <iframe class="flex_item project_video" width="560" height="315"
+                        src="https://www.youtube.com/embed/eI-OEsAi4yo" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                <div class="flex_item">
+                    <div class="item_title">Technologies Used</div>
+                    <ul>
+                        <li>TypeScript</li>
+                        <li>React.js</li>
+                    </ul>
+                </div>
+                <div class="flex_item project_links">
+                    <a href="https://benjamin-cates.github.io/matrix_assistant" target="_blank">Try it out here</a><br>
+                    <a href="https://github.com/benjamin-cates/matrix_assistant/" target="_blank">View source code on Github</a>
+                </div>
+            </div>
         </div>
     </body>
 </html>
