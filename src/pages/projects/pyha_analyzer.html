@@ -3,11 +3,53 @@
     <head>
         <title>Pyha Analyzer</title>
         {{> partials/html_head}}
+        <link rel="stylesheet" type="text/css" href="/static/style/project.css"/>
     </head>
     <body>
         {{> partials/header}}
-        <div class="page">
-            PyHa Analyzer
+        <div class="project_title">PyHa Analyzer</div>
+        <div class="project">
+            <div class="flex_column">
+                <div class="flex_item">
+                    <div class="item_title">Description</div>
+                    <div class="project_spiel">
+                        PyHa Analyzer is a bird call classification system that I helped develop at UC San Diego
+                        as a part of the Engineers for Exploration research cohort of Summer 2023.
+                        It uses multiple different convolutional neural networks on audio spectrograms to 
+                        classify bird calls by species. Project is in collaboration with the San Diego Zoo
+                        Wildlife Alliance.
+                    </div>
+                </div>
+                <iframe class="flex_item project_video" width="560" height="315" src="https://www.youtube.com/embed/SlNWh68qTh0?start=4043" title="2023 E4E Summer Projects Webcast" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="flex_column">
+                <div class="flex_item">
+                    <div class="item_title">My Contributions</div>
+                    <ul class="project_features">
+                        <li>Documented and set up three AWS EC2 instances to train ML models</li>
+                        <li>Implemented pseudo-labeling to fix domain shift problem</li>
+                        <li>Wrote CSV formatting code to standardize varying file formats</li>
+                        <li>Compare different techniques to chunk long audio data into short clips</li>
+                        <li>Develop testing procedures to compare different preprocessing techniques</li>
+                        <li>Wrote utilty to visually compare augmentation techniques</li>
+                    </ul>
+                </div>
+                <div class="flex_item">
+                    <div class="item_title">Technologies Used</div>
+                    <ul class="project_features">
+                        <li>Python</li>
+                        <li>PyTorch</li>
+                        <li>Pandas</li>
+                        <li>AWS</li>
+                        <li>Numpy</li>
+                        <li>Matplotlib</li>
+                    </ul>
+                </div>
+                <div class="flex_item project_links">
+                    <a href="https://github.com/UCSD-E4E/acoustic-multiclass-training" target="_blank">View source code on Github</a><br>
+                    <a href="https://e4e.ucsd.edu/news-and-updates/2023-summer-research-students">UCSD Engineers for Exploration</a>
+                </div>
+            </div>
         </div>
     </body>
 </html>
