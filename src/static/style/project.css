@@ -18,7 +18,7 @@ img {
 .project_title {
   text-align: center;
   display: block;
-  font-family: "Space Mono";
+  font-family: "Space Mono", "monospace";
   font-size: 2em;
   padding: 0.5rem 1rem 1rem 1rem;
   color: white;
@@ -41,7 +41,7 @@ img {
 
 .item_title {
   font-size: 1.5rem;
-  font-family: "Space Mono";
+  font-family: "Space Mono", "monospace";
   color: rgba(230, 230, 230, 1);
   content: " Photos";
   display: block;
@@ -125,7 +125,7 @@ ul {
 
 .project_links {
   padding: 1rem;
-  font-family: "Space Mono";
+  font-family: "Space Mono", "monospace";
 }
 
 .lang {
