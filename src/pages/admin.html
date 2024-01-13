@@ -33,8 +33,8 @@
         {{> partials/header}}
         <div class="page">
             <h2>thebenjicat.dev admin page</h2>
-            <select id="select_action" name="select_action" value="add_file">
-                <option value="add_file">Upload file</option>
+            <select id="select_action" name="select_action">
+                <option value="add_file" selected>Upload file</option>
                 <option value="add_link">Add link</option>
                 <option value="remove_file">Remove file</option>
                 <option value="remove_link">Remove link</option>
@@ -66,7 +66,7 @@
         
 
             <div>
-                <input type="text" id="admin_password" onkeypress="if(event.key == 'Enter') document.querySelector('#submit').click()" placeholder="Admin Password"/>
+                <input type="text" id="admin_password" onkeypress="if(event.key == 'Enter') document.querySelector('#submit').click()" placeholder="Admin Password">
                 <button id="submit">Submit</button>
             </div>
             <p id="result"></p>
