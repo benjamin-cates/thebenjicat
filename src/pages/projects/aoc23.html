@@ -4,6 +4,21 @@
         <title>Advent of Code 2023</title>
         {{> partials/html_head}}
         <link rel="stylesheet" type="text/css" href="/static/style/project.css"/>
+        <style>
+            #personal_times {
+                font-family: 'Space Mono', 'monospace';
+                font-size: 1rem;
+                padding: 1rem;
+                margin: 1rem;
+                border-collapse: collapse;
+            }
+            td {
+                padding: 0.3rem;
+                border-collapse: collapse;
+                border: 0.05rem solid #ccc;
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
         {{> partials/header}}
@@ -35,21 +50,6 @@
             <div class="flex_column">
                 <div class="flex_item project_features" style="overflow-x: auto;">
                     <div class="item_title">Personal times</div>
-                    <style>
-                        #personal_times {
-                            font-family: 'Space Mono', 'monospace';
-                            font-size: 1rem;
-                            padding: 1rem;
-                            margin: 1rem;
-                            border-collapse: collapse;
-                        }
-                        td {
-                            padding: 0.3rem;
-                            border-collapse: collapse;
-                            border: 0.05rem solid #ccc;
-                            text-align: center;
-                        }
-                    </style>
                     <table id="personal_times">
                         <thead>
                             <tr><td></td><td colspan="2">Part1</td><td colspan="2">Part2</td><td></td></tr>

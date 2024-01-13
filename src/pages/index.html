@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <title>thebenjicat.dev</title>
+        <link rel="stylesheet" type="text/css" href="/static/style/index.css">
         {{> partials/html_head}}
     </head>
     <body>
@@ -39,57 +40,6 @@
                     doAnimation();
                 }
             </script>
-            <style>
-                #title_cursor {
-                    animation: blinker 1s ease-in-out infinite;
-                    display:inline-block;
-                    transform: translate(-0.2em,0);
-                }
-                #title {
-                    display:flex;
-                    align-items:flex-start;
-                    justify-content:center;
-                    font-size: calc(min(3rem,9vw));
-                    margin-top:10vh;
-                    flex-direction: row;
-                }
-                @media only screen and (max-width: 740px) {
-                    #title {flex-direction: column;align-items: center;}
-                }
-                #title_inner {
-                    display:flex;
-                    align-items:center;
-                    justify-content: center;
-                    flex-direction: column;
-                    min-width: 11em;
-                    margin-bottom: 2rem;
-                }
-                #title_text_wrapper {
-                    background: rgb(118,25,218);
-                    background: linear-gradient(225deg, rgba(118,25,218,1) 0%, rgba(122,30,167,1) 50%, rgba(147,33,118,1) 100%);
-                    border-radius:0.4em;
-                    padding: 0.4em;
-                    min-width: 5em;
-                    text-align:center;
-                }
-
-                #title_description {
-                    font-size: 1rem;
-                    text-align:center;
-                    width: calc(15vw + 10rem);
-                    margin-top: 1rem;
-                }
-
-                @keyframes blinker {
-                    20% { opacity: 1.0; }
-                    45% { opacity: 0; }
-                    50% { opacity: 0; }
-                    70% { opacity: 1.0; }
-                }
-                #contact_info {
-                    font-size:0.5em;
-                }
-            </style>
             <div id="title_inner">
                 <span id="title_text_wrapper">
                     <span id="title_text"></span>
@@ -97,11 +47,6 @@
                 </span>
                 <div id="title_description">Hi! I am a software developer with a passion for web development</div>
             </div>
-            <style>
-                #contact_info > * > a  { display: flex; align-items: center; }
-                #contact_info > * > a > svg {margin-right: 0.4em}
-                #contact_info {background: #333333; border-radius: 0.5em;padding: 0.5em;}
-                </style>
             <div id ="contact_info">
                 <div id="github"><a href="/links/github">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
@@ -112,71 +57,34 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="24" height="24"><path d="M49.487 15.034c-6.86.033-12.074 4.57-14.026 11.8-3.275-5.04-5.83-10.805-7.295-15.672l-7.22.034.1 19.138a6.861 6.861 0 0 1-13.722.065l-.1-19.138L0 11.296.1 30.435C.128 38.377 6.474 44.67 14.24 44.63s14.055-6.386 14.02-14.33l-.015-3.25c1.456 2.88 3.276 5.94 5.276 8.64l-4.415 21.144 7.4-.034 3.18-15.362c2.896 1.793 6.15 2.86 9.94 2.842C57.57 44.245 64.04 37.717 64 29.41c-.036-7.946-6.568-14.413-14.512-14.377zm.103 21.846c-2.888.013-5.782-1.236-8.138-3.213l.708-2.9v-.182c.528-3.074 2.126-8.316 7.542-8.34a7.244 7.244 0 0 1 7.257 7.188c-.163 4.153-3.577 7.42-7.37 7.437z" fill="#6fda44"/></svg>
                     UpWork</a></div>
                 <div id="youtube"><a href="/links/youtube">
-<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" xml:space="preserve" y="0" x="0"viewBox="0.15 -21.25 120.3 127.5"><style>.st2{fill:#282828}</style><g id="g7433"><path id="path7429" d="M118.9 13.3c-1.4-5.2-5.5-9.3-10.7-10.7C98.7 0 60.7 0 60.7 0s-38 0-47.5 2.5C8.1 3.9 3.9 8.1 2.5 13.3 0 22.8 0 42.5 0 42.5s0 19.8 2.5 29.2C3.9 76.9 8 81 13.2 82.4 22.8 85 60.7 85 60.7 85s38 0 47.5-2.5c5.2-1.4 9.3-5.5 10.7-10.7 2.5-9.5 2.5-29.2 2.5-29.2s.1-19.8-2.5-29.3z" fill="red"/><path id="polygon7431" fill="#fff" d="M48.6 24.3v36.4l31.6-18.2z"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" xml:space="preserve" y="0" x="0" viewBox="0.15 -21.25 120.3 127.5"><g id="g7433"><path id="path7429" d="M118.9 13.3c-1.4-5.2-5.5-9.3-10.7-10.7C98.7 0 60.7 0 60.7 0s-38 0-47.5 2.5C8.1 3.9 3.9 8.1 2.5 13.3 0 22.8 0 42.5 0 42.5s0 19.8 2.5 29.2C3.9 76.9 8 81 13.2 82.4 22.8 85 60.7 85 60.7 85s38 0 47.5-2.5c5.2-1.4 9.3-5.5 10.7-10.7 2.5-9.5 2.5-29.2 2.5-29.2s.1-19.8-2.5-29.3z" fill="red"/><path id="polygon7431" fill="#fff" d="M48.6 24.3v36.4l31.6-18.2z"/></g></svg>
                     YouTube</a></div>
 
             </div>
         </div>
-        <div id="experience_header">
-            <style>
-                #experience_header {
-                    font-size:2.5em;
-                    color: #EEEEEE;
-                    text-align: center;
-                    margin-bottom: 2rem;
-                }
-            </style>
-            Experience
-        </div>
+        <div id="experience_header">Experince</div>
         <div id="experience_wrapper"> <div id="experience">
-            <style> 
-                #experience_wrapper {display: flex; justify-content: center;}
-                #experience {
-                    display: grid; 
-                    gap: 1em 1em;
-                    grid-template-columns: 1fr 1fr;
-                    width: calc(60vw + 6em);
-                    margin-bottom: 5rem;
-                }
-                @media only screen and (max-width: 1000px) {
-                    #experience {grid-template-columns: 1fr;width: calc(50vw + 6em);}
-                }
-                .experience {
-                    background: #303030;
-                    border-radius: 0.5em;
-                    padding: 1rem;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content:space-between;
-                }
-                .experience_title {font-size: 1.6em;margin-bottom: 1rem;}
-                .experience_image { display: flex; justify-content: center; margin-bottom: 0.5rem }
-                .experience_image > img { 
-                    border-radius: 0.7em; 
-                    width: calc(10em + 8vw);
-                }
-            </style>
             <div class="experience">
                 <div class="experience_title">PyHa Analyzer</div>
-                <div class="experience_image"><img src="/static/images/piha.jpg"/></div>
+                <div class="experience_image"><img src="/static/images/piha.jpg" alt="Screaming Piha"></div>
                 <div class="experience_spiel">PyTorch machine learning on bird audio. Developed on a team of four at a research lab at UC San Diego over summer 2023</div>
                 <div class="experience_see_more"><a href="/projects/pyha_analyzer">See more...</a></div>
             </div>
             <div class="experience">
                 <div class="experience_title">Matrix Assistant</div>
-                <div class="experience_image"><img src="/static/images/matrix_assistant.jpg"/></div>
+                <div class="experience_image"><img src="/static/images/matrix_assistant.jpg" alt="Matrix entering interface"></div>
                 <div class="experience_spiel">React app to help students learn matrix row reduction in linear algebra</div>
                 <div class="experience_see_more"><a href="/projects/matrix_assistant">See more...</a></div>
             </div>
             <div class="experience">
                 <div class="experience_title">Topographic Sand Map</div>
-                <div class="experience_image"><img src="/static/images/topo_map.jpg"/></div>
+                <div class="experience_image"><img src="/static/images/topo_map.jpg" alt="Topographic sand map"></div>
                 <div class="experience_spiel">Real-time topographic table made with a depth sensor and a projector</div>
                 <div class="experience_see_more"><a href="/projects/topographic_sand_map">See more...</a></div>
             </div>
             <div class="experience">
                 <div class="experience_title">Interactive EM</div>
-                <div class="experience_image"><img src="/static/images/interactive_em.jpg"/></div>
+                <div class="experience_image"><img src="/static/images/interactive_em.jpg" alt="Electric field visualization"></div>
                 <div class="experience_spiel">Web application used to visually simulate the electric field for education</div>
                 <div class="experience_see_more"><a href="/projects/interactive_em">See more...</a></div>
             </div>

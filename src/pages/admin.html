@@ -3,6 +3,31 @@
     <head>
         <title>Admin page</title>
         {{> partials/html_head}}
+        <style>
+            .admin_option {
+                display:none;
+            }
+            input, button, select {
+                font-family: "Lexend";
+                display: block;
+                font-size:1rem;
+                color: #DDD;
+                background: #333;
+                border-radius: 5px;
+                border: none;
+                margin-top: 0.4rem;
+                padding: 0.2rem;
+            }
+            input:focus, button:focus, select:focus {
+                outline: 0.1rem #4466FF solid;
+            }
+            .divider {
+                margin-top:2rem;
+                display: block;
+                height: 2rem;
+                border-top: 2px dashed #555;
+            }
+        </style>
     </head>
     <body>
         {{> partials/header}}
@@ -14,30 +39,30 @@
                 <option value="remove_file">Remove file</option>
                 <option value="remove_link">Remove link</option>
             </select>
-            <divider></divider>
+            <div class="divider"></div>
 
 
             <div id="add_file" class="admin_option" style="display: block">
                 <p> Upload file: </p>
-                <input type="file" id="add_file_file"/> 
-                <input type="text" id="add_file_name" placeholder="File name"/>
-                <input type="text" id="add_file_password" placeholder="Password (or blank)"/>
+                <input type="file" id="add_file_file"> 
+                <input type="text" id="add_file_name" placeholder="File name">
+                <input type="text" id="add_file_password" placeholder="Password (or blank)">
             </div>
             <div id="add_link" class="admin_option">
                 <p> Insert link: </p>
-                <input type="text" id="add_link_name" placeholder="Name"/>
-                <input type="text" id="add_link_path" placeholder="Path"/>
-                <input type="text" id="add_link_url" placeholder="URL"/>
+                <input type="text" id="add_link_name" placeholder="Name">
+                <input type="text" id="add_link_path" placeholder="Path">
+                <input type="text" id="add_link_url" placeholder="URL">
             </div>
             <div id="remove_file" class="admin_option">
                 <p> Remove file: </p>
-                <input type="text" id="remove_file_name" placeholder="Name"/>
+                <input type="text" id="remove_file_name" placeholder="Name">
             </div>
             <div id="remove_link" class="admin_option">
                 <p> Remove link: </p>
-                <input type="text" id="remove_link_path" placeholder="Path"/>
+                <input type="text" id="remove_link_path" placeholder="Path">
             </div>
-            <divider></divider>
+            <div class="divider"></div>
         
 
             <div>
@@ -45,31 +70,6 @@
                 <button id="submit">Submit</button>
             </div>
             <p id="result"></p>
-            <style>
-                .admin_option {
-                    display:none;
-                }
-                input, button, select {
-                    font-family: "Lexend";
-                    display: block;
-                    font-size:1rem;
-                    color: #DDD;
-                    background: #333;
-                    border-radius: 5px;
-                    border: none;
-                    margin-top: 0.4rem;
-                    padding: 0.2rem;
-                }
-                input:focus, button:focus, select:focus {
-                    outline: 0.1rem #4466FF solid;
-                }
-                divider {
-                    margin-top:2rem;
-                    display: block;
-                    height: 2rem;
-                    border-top: 2px dashed #555;
-                }
-            </style>
             <script>
             let type = "add_file";
             document.querySelector("#select_action").addEventListener("input", event => {
