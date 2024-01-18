@@ -7,12 +7,12 @@
     </head>
     <body>
         {{> partials/header}}
-        <div class="project_title">Topographic Sand Map</div>
-        <div id="topographic_sand_map" class="project">
+        <h1 class="project_title">Topographic Sand Map</h1>
+        <article id="topographic_sand_map" class="project">
             <div class="flex_column">
-                <div class="flex_item">
-                    <div class="item_title">Description</div>
-                    <div class="project_spiel">
+                <section class="flex_item">
+                    <h2 class="item_title">Description</h2>
+                    <p class="project_spiel">
                         The topographic sand map is a real-time interactive demonstration of topography lines.
                         The table uses the Microsoft Kinect viewer to create a height map of the sand 30 times per
                         second, which is then sent through processing filters that create a layered topographic map.
@@ -20,26 +20,26 @@
                         I started on the project when another team had been working on it for two years.
                         The mechanism was ready but there was no code to run it.
                         I adopted the project by myself and wrote a working Unity program within 5 months.
-                    </div>
-                </div>
+                    </p>
+                </section>
                 <iframe class="flex_item project_video" width="560" height="315"
                   style="border: none"
                   src="https://www.youtube.com/embed/TRQ0kKvbz6o" title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen></iframe>
-                <div class="flex_item">
-                    <div class="item_title">Technologies Used</div>
+                <section class="flex_item">
+                    <h2 class="item_title">Technologies Used</h2>
                     <ul class="project_features">
                         <li>Unity</li>
                         <li>C#</li>
                         <li>Shaderlab</li>
                         <li>Microsoft Kinect</li>
                     </ul>
-                </div>
+                </section>
             </div>
             <div class="flex_column">
-                <div class="flex_item project_photos">
-                    <div class="item_title">Photos</div>
+                <section class="flex_item project_photos">
+                    <h2 class="item_title">Photos</h2>
                     <div class="photo_carousel">
                         <div class="photo">
                             <img src="/static/project/topo_000.webp" alt="Table at the Geomatics and Engineering Conference at CSU Fresno"><br>
@@ -68,19 +68,22 @@
                     <div class="carousel_markers">
                         <span></span><span></span><span></span><span></span><span></span><span></span>
                     </div>
-                </div>
-                <div class="flex_item">
-                    <div class="item_title">Features</div>
+                </section>
+                <section class="flex_item">
+                    <h2 class="item_title">Features</h2>
                     <ul class="project_features">
                         <li>Alignment control system</li>
                         <li>Different themes</li>
                         <li>Contour lines</li>
                     </ul>
-                </div>
-                <div class="flex_item project_links">
-                    <a href="https://github.com/fnlHub/topographic-sand-map" target="_blank">View source code on Github</a>
-                </div>
+                </section>
+                <section class="flex_item">
+                    <h2 class="item_title">Links</h2>
+                    <p class="project_links">
+                        <a href="https://github.com/fnlHub/topographic-sand-map" target="_blank">View source code on Github</a>
+                    </p>
+                </section>
             </div>
-        </div>
+        </article>
     </body>
 </html>

@@ -22,6 +22,7 @@ img {
   font-size: 2em;
   padding: 0.5rem 1rem 1rem 1rem;
   color: white;
+  margin: 0;
 }
 
 .flex_column {
@@ -47,11 +48,13 @@ img {
   display: block;
   border-bottom: 2px dashed gray;
   padding: 0.5rem 0 0.5rem 1rem;
+  margin: 0;
 }
 
 .project_spiel {
   text-align: justify;
   padding: 1rem;
+  margin: 0rem;
 }
 
 .project_video {
@@ -126,6 +129,7 @@ ul {
 .project_links {
   padding: 1rem;
   font-family: "Space Mono", "monospace";
+  margin: 0rem;
 }
 
 .lang {
