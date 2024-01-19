@@ -11,8 +11,8 @@ header {
 }
 #header_name { display: flex; align-items: center; }
 #pfp {border-radius: 100%; width: 3rem; height: 3rem; margin-right: 1em}
-#pronouns {color: #777777; font-size: 0.75em;}
-#location {color: #888888; font-size: 0.75em;margin-left: 0.6em}
+#pronouns {color: #A1A1A1; font-size: 0.75em;}
+#location {color: #A1A1A1; font-size: 0.75em;margin-left: 0.6em}
 #name {font-size: 1.5em;display: block;}
 
 
