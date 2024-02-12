@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>AntLogic</title>
+        {{> partials/html_head}}
+        <link rel="stylesheet" type="text/css" href="/static/style/project.css">
+    </head>
+    <body>
+        {{> partials/header}}
+        <h1 class="project_title">AntLogic</h1>
+        <article id="ant_logic" class="project">
+            <div class="flex_column">
+                <section class="flex_item">
+                    <h2 class="item_title">Description</h2>
+                    <p class="project_spiel">
+                        AntLogic is a complex logic gate puzzle game built to 
+                        enhance students' understanding of boolean logic.
+
+                        Example puzzles include simple puzzles that teach 
+                        concepts like DeMorgan's law and functional completeness,
+                        to intricate puzzles that require more advanced knowledge 
+                        of boolean functions.
+                        Collaborated on this project at IrvineHacks 2024 with <a href="https://github.com/YKawesome">Yousef Khan</a> and <a href="https://github.com/Podskio">Jackson Podgorski</a>.
+                    </p>
+                </section>
+                <iframe class="flex_item project_video" width="560" height="315"
+                  style="border: none"
+                  src="https://www.youtube.com/embed/cO8FiEcALbw" title="AntLogic (IrvineHacks 2024)"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+                <section class="flex_item">
+                    <h2 class="item_title">Technologies Used</h2>
+                    <ul class="project_features">
+                        <li>Rust (Actix HTTP Server)</li>
+                        <li>TypeScript</li>
+                        <li>React</li>
+                        <li>React Spring</li>
+                        <li>React Flow</li>
+                        <li>Figma</li>
+                        <li>Firebase auth</li>
+                    </ul>
+                </section>
+            </div>
+            <div class="flex_column">
+                <section class="flex_item project_photos">
+                    <h2 class="item_title">Photos</h2>
+                    <div class="photo_carousel">
+                        <div class="photo">
+                            <img src="/static/project/antlogic000.webp" alt="Circuit solution for XOR v2"><br>
+                        </div>
+                        <div class="photo">
+                            <img src="/static/project/antlogic001.webp" alt="Front page"><br>
+                        </div>
+                        <div class="photo">
+                            <img src="/static/project/antlogic002.webp" alt="Puzzles list"><br>
+                        </div>
+                        <div class="photo">
+                            <img src="/static/project/antlogic003.webp" alt="Library page for XOR gate"><br>
+                        </div>
+                        <div class="photo">
+                            <img src="/static/project/antlogic004.webp" alt="Sign up page"><br>
+                        </div>
+                    </div>
+                    <div class="carousel_markers">
+                        <span></span><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                </section>
+                <section class="flex_item">
+                    <h2 class="item_title">Features</h2>
+                    <ul class="project_features">
+                        <li>Leaderboard</li>
+                        <li>User authentication system</li>
+                        <li>Logic gate library</li>
+                        <li>Animated components</li>
+                    </ul>
+                </section>
+                <section class="flex_item">
+                    <h2 class="item_title">What I Contributed</h2>
+                    <ul class="project_features">
+                        <li>Backend auth and leaderboard</li>
+                        <li>SVG component designs</li>
+                        <li>Circuit evaluation algorithm</li>
+                        <li>Puzzle prompts</li>
+                        <li>Page styling</li>
+                    </ul>
+                </section>
+                <section class="flex_item">
+                    <h2 class="item_title">Links</h2>
+                    <p class="project_links">
+                        <a href="https://github.com/benjamin-cates/ant_logic" target="_blank">View source code on Github</a><br>
+                        <a href="https://ant-logic.thebenjicat.dev" target="_blank">Try it out here</a><br>
+                        <a href="https://devpost.com/software/antlogic" target="_blank">View IrvineHacks 2024 submission</a>
+                    </p>
+                </section>
+            </div>
+        </article>
+    </body>
+</html>
